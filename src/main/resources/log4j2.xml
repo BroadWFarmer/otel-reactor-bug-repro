@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration status="WARN" name="XMLConfigTest">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{ISO8601} %-5p [%t] %c - %X - %m%n%throwable"/>
+        </Console>
+    </appenders>
+    <loggers>
+        <logger name="appLogger" level="DEBUG"/>
+
+        <root level="INFO">
+            <appender-ref ref="Console"/>
+        </root>
+    </loggers>
+</configuration>

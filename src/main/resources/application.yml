@@ -1,0 +1,19 @@
+spring:
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+  cloud:
+    stream:
+      function.definition: messageListener
+      rabbit:
+        bindings:
+          messageListener-in-0:
+            consumer:
+              bindingRoutingKey: demo
+      bindings:
+        messageListener-in-0:
+          destination: ${REQUEST_EXCHANGE_NAME:demo-exchange}
+          content-type: application/json
+          group: demo
